@@ -31,7 +31,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: "Host(`verytable.ch`) || Host(`www.verytable.ch`)"
+      rule: "Host(`dev.verytable.ch`)" # "Host(`verytable.ch`) || Host(`www.verytable.ch`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -42,7 +42,7 @@ http:
         certResolver: letsencrypt
 
     flower-secure-router:
-      rule: "Host(`verytable.ch`)"
+      rule: "Host(`dev.verytable.ch`)"
       entryPoints:
         - flower
       service: flower
