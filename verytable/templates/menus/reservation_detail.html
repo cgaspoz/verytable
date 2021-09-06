@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static i18n compress%}
+
+{% block content %}
+
+        <!-- Menu-->
+        <section class="page-section" id="menu">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Votre réservation</h2>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-8">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-utensils fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">{{ object.menu.title }}</h4>
+                        <p>{{ object.menu.date }}</p>
+                        <p class="text-muted">{{ object.menu.presentation }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-bookmark fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">{{ object.pax }} places</h4>
+                        <h4 class="my-3">{{ object.code }}</h4>
+                        <h4 class="my-3">{{ object.menu.price }}</h4>
+                      <p class="text-muted"><a href="{% url 'menus:new-reservation' object.menu.id %}">RÉSERVER</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

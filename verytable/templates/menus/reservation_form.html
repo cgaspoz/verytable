@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static i18n compress crispy_forms_tags %}%}
+
+{% block content %}
+
+        <!-- Menu-->
+        <section class="page-section" id="menu">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Nouvelle réservation</h2>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-8">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-utensils fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">{{ menu.title }}</h4>
+                        <p>{{ menu.date }}</p>
+                        <p class="text-muted">{{ menu.presentation }}</p>
+                        <p class="my-3">{{ menu.price }}</p>
+                        <p class="my-3">{{ menu.free_seats }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-bookmark fa-stack-1x fa-inverse"></i>
+                        </span>
+                        {% crispy form %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}
