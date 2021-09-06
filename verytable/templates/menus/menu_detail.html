@@ -16,18 +16,23 @@
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-utensils fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">{{ object.title}}</h4>
+                        <h4 class="my-3">{{ object.title}}{% if object.complete %}<span class="badge badge-primary ml-1">{% trans 'full'|upper %}</span>{% endif %}</h4>
                         <p>{{ object.date }}</p>
-                        <p class="text-muted">{{ object.presentation}}</p>
+                        <p class="text-muted">{{ object.presentation|safe }}</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fas fa-bookmark fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">{{ object.capacity}}</h4>
+                        <h4 class="my-3">
+                          {% if object.complete %}
+                            Complet
+                          {% else %}
+                            Encore {{ object.free_seats}} places
+                          {% endif %}</h4>
                         <h4 class="my-3">{{ object.price}}</h4>
-                        <p class="text-muted">RÉSERVER</p>
+                        <p class="text-muted">{% if not object.complete %}<a href="{% url 'menus:new-reservation' object.id %}">RÉSERVER</a>{% endif %}</p>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@
                         </span>
                         <h4 class="my-3">{{ next_menu.title }}{% if next_menu.complete %}<span class="badge badge-primary ml-1">{% trans 'full'|upper %}</span>{% endif %}</h4>
                         <p>{{ next_menu.date}}</p>
-                        <p class="text-muted">{{ next_menu.presentation}}</p>
+                        <p class="text-muted">{{ next_menu.presentation|safe }}</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
